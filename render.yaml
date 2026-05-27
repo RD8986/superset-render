@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: superset
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
