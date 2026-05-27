@@ -9,11 +9,11 @@ RUN apt-get update && apt-get install -y \
     gcc \
     g++
 
-RUN pip install pymssql pyodbc sqlalchemy gevent gunicorn
+RUN pip install pymssql pyodbc sqlalchemy gunicorn
 
 USER superset
 
 CMD ["/bin/bash", "-c", "\
 superset db upgrade && \
 superset init && \
-gunicorn -w 2 -k gevent --timeout 120 -b 0.0.0.0:8088 'superset.app:create_app()'"]
+gunicorn -w 2 -b 0.0.0.0:8088 'superset.app:create_app()'"]
