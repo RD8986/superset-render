@@ -7,12 +7,9 @@ RUN apt-get update && apt-get install -y \
     curl \
     gnupg \
     gcc \
-    g++ \
-    libgssapi-krb5-2 \
-    libssl-dev
+    g++
 
-# Python DB drivers (no msodbcsql18)
-RUN pip install pymssql pyodbc sqlalchemy
+RUN pip install pymssql pyodbc sqlalchemy gevent gunicorn
 
 USER superset
 
